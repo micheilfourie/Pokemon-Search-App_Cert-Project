@@ -9,23 +9,68 @@
 </head>
 
 <body>
-    <div id="pokemon-container">
 
-        <input type="text" id="search-input">
+    <h1>Pokémon Search App</h1>
+
+    <form id="search-container">
+
+        <input required type="text" id="search-input" placeholder="Enter Pokémon Name or ID" />
         <button id="search-button">Search</button>
 
-        <div id="pokemon-name"></div>
-        <div id="pokemon-id"></div>
-        <div id="weight"></div>
-        <div id="height"></div>
-        <div id="types"></div>
-        <div id="hp"></div>
-        <div id="attack"></div>
-        <div id="defense"></div>
-        <div id="special-attack"></div>
-        <div id="special-defense"></div>
-        <div id="speed"></div>
+    </form>
+
+    <h3 id="pokemon-name"></h3>
+    <div id="pokemon-img-container"></div>
+
+    <div id="pokemon-container">
+
+        <table id="pokemon-table">
+
+            <tr>
+                <td>ID</td>
+                <td id="pokemon-id"></td>
+            </tr>
+            <tr>
+                <td>Weight</td>
+                <td id="weight"></td>
+            </tr>
+            <tr>
+                <td>Height</td>
+                <td id="height"></td>
+            </tr>
+            <tr>
+                <td>Types</td>
+                <td id="types"></td>
+            </tr>
+            <tr>
+                <td>HP</td>
+                <td id="hp"></td>
+            </tr>
+            <tr>
+                <td>Attack</td>
+                <td id="attack"></td>
+            </tr>
+            <tr>
+                <td>Defence</td>
+                <td id="defense"></td>
+            </tr>
+            <tr>
+                <td>Special Attack</td>
+                <td id="special-attack"></td>
+            </tr>
+            <tr>
+                <td>Special Defence</td>
+                <td id="special-defense"></td>
+            </tr>
+            <tr>
+                <td>Speed</td>
+                <td id="speed"></td>
+            </tr>
+
+        </table>
     </div>
+
+
 
     <script src="./script.js"></script>
 </body>
