@@ -10,9 +10,9 @@ const pokemonSpecialAttack = document.getElementById('special-attack');
 const pokemonSpecialDefence = document.getElementById('special-defense');
 const pokemonSpeed = document.getElementById('speed');
 const pokemonImgContainer = document.getElementById('pokemon-img-container');
-const searchButton = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
 const searchContainer = document.getElementById('search-container');
+const pokemonTable = document.getElementById('pokemon-table');
 
 const fetchData = async (url) => {
     try {
@@ -29,11 +29,7 @@ const main = async () => {
     const input = searchInput.value.trim().toLowerCase();
     const url = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
     const data = await fetchData(url);
-
     searchPokemon(data, input);
-    console.log(data);
-    console.log(input);
-
 }
 
 const searchPokemon = async (data, input) => {
@@ -45,9 +41,6 @@ const searchPokemon = async (data, input) => {
             return pokemon.name === input
         }
     });
-
-    console.log(foundPokemon);
-
 
     if (foundPokemon) {
         const pokemonUrl = foundPokemon.url;
@@ -62,6 +55,8 @@ const searchPokemon = async (data, input) => {
 
 const displayPokemon = (data) => {
 
+    pokemonTable.style.display = 'table';
+
     const { name, id, weight, height } = data;
     const hp = data.stats[0].base_stat;
     const attack = data.stats[1].base_stat;
@@ -69,13 +64,20 @@ const displayPokemon = (data) => {
     const specialAttack = data.stats[3].base_stat;
     const specialDefence = data.stats[4].base_stat;
     const speed = data.stats[5].base_stat;
-    const types = data.types.map(item => item.type.name.toUpperCase()).join(' ');
+    const types = data.types.map(item => item.type.name.toUpperCase());
+
+    if (pokemonTypes.innerHTML !== "") {
+        pokemonTypes.innerHTML = "";
+    }
+
+    types.forEach(type => {
+        pokemonTypes.innerHTML += `<span class="type-${type}">${type} </span>`
+    })
 
     pokemonName.textContent = name.toUpperCase();
     pokemonId.textContent = id;
     pokemonWeight.textContent = weight;
     pokemonHeight.textContent = height;
-    pokemonTypes.textContent = types;
     pokemonHp.textContent = hp;
     pokemonAttack.textContent = attack;
     pokemonDefense.textContent = defence;

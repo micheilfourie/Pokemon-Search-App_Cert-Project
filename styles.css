@@ -3,10 +3,15 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: auto;
     width: 100vw;
     height: 100vh;
     margin: 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.1), 
+        rgba(0, 0, 0, 0.1)
+      ),url("https://www.thewandcompany.com/wp-content/uploads/2023/11/Poke-Ball-in-the-wild-on-grass-scaled.jpg");
+    background-position: center;
+    color: white;
 }
 
 #pokemon-container{
@@ -17,7 +22,8 @@ body{
 }
 
 table, th, td{
-    border: 1px solid black;
+    border: 1px solid #000000;
+    background-color: #78807E;
 }
 
 th, td{
@@ -45,4 +51,20 @@ h3{
 
 :hover #search-button {
     cursor: pointer;
+}
+
+table{
+    display: none;
+    margin: 0 30px 30px 30px;
+}
+
+#app{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px ;
+    background-color: #242E33;
+    border-radius: 20px;
+    opacity: 0.97;
 }
